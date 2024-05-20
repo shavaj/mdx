@@ -12,8 +12,16 @@ Teltonika RUT based devices by default will assign IP addresses to devices conne
 In order to ensure IP of the devices that we pair using MOS350 does not change over time, we need to assign a static IP to the device.
 
 
-```bash
-npm install npx
+```jsx
+export async function generateStaticParams() {
+    const posts = await getPostsMeta() //deduped!
+
+    if (!posts) return []
+
+    return posts.map((post) => ({
+        postId: post.id
+    }))
+}
 ```
 
 
